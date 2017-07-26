@@ -3,6 +3,7 @@ url: https://github.com/Dreyer/hexo-theme-artemis
 
 menu:
   Home: /
+  Welcome: /welcome
   Archives: /archives
   GitHub: https://github.com/tessel/project
   RSS: /atom.xml
