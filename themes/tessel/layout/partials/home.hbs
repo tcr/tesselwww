@@ -1,0 +1,5 @@
+{{var prev = page.prev_link}}{{var next = page.next_link}}
+<div class="paginator">
+  {{#if page.prev}}<a href="{{url_for(prev)}}" class="prev">{{__('prev')}}</a>{{/if}}
+  {{#if page.next}}<a href="{{url_for(next)}}" class="next">{{__('next')}}</a>{{/if}}
+</div>

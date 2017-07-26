@@ -1,0 +1,7 @@
+<ul class="nav nav-list">
+  {{#each theme.menu as |value key|}}
+    <li class="nav-list-item">
+      <a href="{{value}}" class="nav-list-link {{#if act}}active{{/if}}">{{key}}</a>
+    </li>
+  {{/each}}
+</ul>

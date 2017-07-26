@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="{{config.language}}">
+
+<head>{{> head }}</head>
+
+<body>
+  <div class="wrap">
+    <header>{{!-- img.logo-image(src=url_for(theme.logo) alt='logo')--}}
+      <h1 class="branding">
+        <a href="" title="{{config.title}}">
+          {{#if theme.logo}}
+            <img src="" alt="logo" class="logo-image">
+          {{/if}}
+        </a>
+      </h1>
+      {{> nav }}
+    </header>
+    <main class="container">{{> container }}</main>
+    <footer>{{> pagination }}{{> copyright }}</footer>
+  </div>{{> scripts }}</body>
+
+</html>

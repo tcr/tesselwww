@@ -1,0 +1,11 @@
+{{#> partial/layout.pug }}
+  {{#*inline container }}{{> mixins/post.pug }}
+    <!-- TODO: Fix unsupported pug mixin -->
+    mixin postList()
+    {{/inline}}
+    {{#*inline pagination }}{{> mixins/paginator.pug }}
+      <!-- TODO: Fix unsupported pug mixin -->
+      mixin home()
+      {{/inline}}
+      {{#*inline copyright }}{{> partial/copyright.pug }}{{/inline}}
+{{/partial/layout.pug}}

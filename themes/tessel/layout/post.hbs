@@ -1,0 +1,25 @@
+{{#> layout }}
+  {{#*inline "description" }}
+    <meta name="description" content="{{page.title}} - {{config.author}}">
+  {{/inline}}
+
+  {{#*inline "site_title" }}
+    {{page.title}} | {{config.title}}
+  {{/inline}}
+
+  {{#*inline "container" }}
+    {{#>postBody item=page}}
+      {{>comment}}
+    {{/postBody}}
+  {{/inline}}
+  
+  {{#*inline "pagination" }}
+    {{>paginator}}
+    {{>postBody}}
+    {{>comment}}
+  {{/inline}}
+  
+  {{#*inline "copyright" }}
+    {{> copyright }}
+  {{/inline}}
+{{/layout}}
