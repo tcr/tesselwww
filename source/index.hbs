@@ -1,0 +1,51 @@
+<h1>Tessel.io</h1>
+
+<p>Build your idea <em>faster</em>.</p>
+<p>Tessel 2 is a robust IoT and robotics development platform. Leverage all the libraries of Node.JS to create useful devices in minutes with Tessel.</p>
+
+<p>Order from Seeed Studio (China/Global)</p>
+<p>Order from SparkFun (USA/Global)</p>
+
+<img height="100" src="https://s3.amazonaws.com/technicalmachine-assets/launch/tessel2-800x600.jpg">
+
+<h2>Tessel 2 Features</h2>
+<p>Everything you need to get up and running.</p>
+
+<p>PLUG & PLAY MODULE ECOSYSTEM</p>
+<p>PROTOTYPE FAST WITH MODULAR HARDWARE.</p>
+<p>Interact with the physical world from sensing to actuation to connecting with other devices. Each module has an open source library on NPM, with instructions and tutorials available online. It's literally plug, npm install, and play.</p>
+
+<p>HIGH LEVEL HARDWARE APIS</p>
+<p>BUILD YOUR APPLICATION IN MINUTES.</p>
+<p>Tessel 2 runs JavaScript and supports NPM (the Node package manager)— that's HTTP, Twitter, web server, color, and async right out of the box.</p>
+
+<p>Install</p>
+<p>Add Library</p>
+<p>Get Online</p>
+
+<p>Tessel 2 also has the capacity to support multiple languages&mdash;see samples of Rust and JavaScript in the tabs below.</p>
+
+<pre>
+/* ambient.js example */
+// this example streams sound data from
+// the ambient sensor every 0.5 seconds
+var tessel = require('tessel');
+var ambientlib = require('ambient-attx4');
+var WebSocket = require('ws');
+
+// Connect to our ambient sensor.
+var ambient = ambientlib.use(tessel.port['A']);
+
+// Open a websocket to our app.
+var ws = new WebSocket('ws://awesome-app.com/ambient');
+// When the connection is established
+ws.on('open', function () {
+  setInterval(function () {
+    // read some sound level data
+    ambient.getSoundLevel(function(err, sdata) {
+      if (err) throw err;
+      sdata.pipe(ws);
+    })
+  }, 500); // The readings will happen every .5 seconds
+});
+</pre>
