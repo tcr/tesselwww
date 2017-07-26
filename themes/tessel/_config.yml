@@ -4,7 +4,7 @@ url: https://github.com/Dreyer/hexo-theme-artemis
 menu:
   Home: /
   Archives: /archives
-  GitHub: https://github.com/Dreyer
+  GitHub: https://github.com/tessel/project
   RSS: /atom.xml
 
 favicon: /favicon.png
