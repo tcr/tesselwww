@@ -14,12 +14,13 @@
     "hexo-generator-sitemap": "^1.2.0",
     "hexo-generator-tag": "^0.2.0",
     "hexo-renderer-ejs": "^0.2.0",
-    "hexo-renderer-handlebars": "^2.0.2",
+    "hexo-renderer-handlebars": "git+https://github.com/tcr/hexo-renderer-handlebars.git",
     "hexo-renderer-marked": "^0.2.10",
     "hexo-renderer-pug": "0.0.5",
     "hexo-renderer-sass-bourbon-neat": "^1.0.2",
     "hexo-renderer-stylus": "^0.3.1",
     "hexo-server": "^0.2.0",
-    "moment": "^2.18.1"
+    "moment": "^2.18.1",
+    "request-promise": "^4.2.1"
   }
 }
