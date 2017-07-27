@@ -9,7 +9,6 @@ const modules = request(modulesUrl);
 
 hexo.extend.filter.register('before_post_render', function(data){
     return modules.then((json) => {
-        console.error('---->', json);
         data.markdown = JSON.parse(json);
     })
 });
