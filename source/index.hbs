@@ -49,3 +49,101 @@ ws.on('open', function () {
   }, 500); // The readings will happen every .5 seconds
 });
 </pre>
+
+<p>Use your favorite text editor and libraries to program Tessel 2, just like any web development environment. Uploading new code is as easy as tessel run!</p>
+
+<h2>USB Modules</h2>
+<p>Tessel has two USB ports. Plug in USB modules and control them with a simple script.</p>
+
+<pre>
+/* ambient-camera.js example */
+// this example records video from a camera
+// when a certain sound level is reached
+var tessel = require('tessel');
+var http = require('http');
+// set up camera
+var cameralib = require('camera-usb');
+// set up ambient sensor on port A
+var ambient = require('ambient-attx4').use(tessel.port['A']);
+
+// set a sound trigger
+ambient.setSoundTrigger(0.6);
+
+cameralib.find(function(camera) {
+  // stream some video when sound is sensed
+  ambient.on('sound-trigger', function(){
+    var req = http.request({
+      hostname: 'example.com',
+        path: '/upload',
+        method: 'POST'
+      },
+      function (res) {
+        res.pipe(process.stdout)
+      });
+    camera.captureStream(2000, 'mjpg').pipe(req);
+  });
+});
+</pre>
+
+<p>Combine USB and 10-pin modules and run them with the same script.</p>
+
+<p>Run Code t2 run ambient-camera.js </p>
+
+<h2>Open Source</h2>
+<p>Just like the original Tessel, Tessel 2 is open source software and hardware. Contributions are welcome!</p>
+
+<h3>The Nitty</h3>
+<ul>
+<li>Programmable in JavaScript</li>
+<li>Planned support for Rust and other languages</li>
+<li>Tessel Modules for added hardware capabilities</li>
+<li>Runs Node.js</li>
+<li>Deploy over USB or remotely by WiFi</li>
+<li>CE and FCC certified</li>
+<li>MicroUSB programming and power</li>
+</ul>
+
+<h3>The Gritty</h3>
+<ul>
+<li>580MHz Mediatek MT7620n</li>
+<li>Linux built on OpenWRT</li>
+<li>802.11bgn WiFi</li>
+<li>WEP, WPA, WPA2-PSK, WPA2-Enterprise</li>
+<li>64MB DDR2 RAM</li>
+<li>32MB Flash</li>
+<li>16 pins GPIO, 7 of which support analog in</li>
+<li>2 USB 2.0 ports with per-port power switching</li>
+<li>Supports 10/100 ethernet</li>
+</ul>
+
+<h2>FAQ</h2>
+
+<dl>
+<dt>What’s changing with Tessel 2?</dt>
+<dd>New features on Tessel 2 include extremely reliable WiFi, an ethernet jack, two USB ports, and a system that runs real Node.js/io.js.
+We’ve also added support for scaling up: board customization options, and services for embedding Tessel in a product.</dd>
+<dt>When will my Tessel 2 ship?</dt>
+<dd>Tessel 2 is currently shipping! You can order T2s for immediate delivery from Seeed.</dd>
+<dt>What modules are available/compatible?</dt>
+<dd>Check out <a href="/modules">our modules page</a>!</dd>
+<dt>How is Tessel 2 different from other development boards?</dt>
+<dd>Tessel 2 is designed for the fastest possible path to production. Plug and play modules and high-level APIs set it apart from most other development boards. Tessel doesn't expect you to set up and maintain a Linux system or track down pinout diagrams to wire up sensors (though the root shell and GPIO access are available should you desire them).</dd>
+<dt>Can I try out the Tessel platform?</dt>
+<dd>Absolutely! You can find in-person communities hacking on Tessels on our <a href="https://tessel.io/community">Community page</a>.</dd>
+<dt>Can I use my own USB devices?</dt>
+<dd>Yes. First-party modules will have high-level APIs and be tested to ensure driver support, but you can also add your own USB devices if the drivers are compatible and/or you dive a little deeper into the OpenWrt ecosystem.</dd>
+<dt>Is Tessel a start-up?</dt>
+<dd>No– in fact, we're not a company at all. Originally, Tessel was produced by a start-up called Technical Machine, but it has since grown into an independent, all-volunteer organization called the Tessel Project.</dd>
+<dt>I have more questions! How can I contact you?</dt>
+<dd>For quick questions, we're @tesselproject on Twitter. Longer questions are welcome on our forums. Questions about orders should be directed to Seeed Studio.</dd>
+</dl>
+
+<h2>Stay Updated</h2>
+<p>Sign up to receive a periodic (monthly) newsletter about Tessel news.</p>
+<p>"This Week in Tessel" is where we highlight the latest news, projects, and events, from code, to community, to hardware manufacturing.</p>
+
+<p>Enter your email address to subscribe.*</p>
+
+
+<p>Order from Seeed Studio (China/Global)</p>
+<p>Order from SparkFun (USA/Global)</p>
