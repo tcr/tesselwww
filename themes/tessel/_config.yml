@@ -2,12 +2,12 @@ name: Tessel
 url: https://github.com/Dreyer/hexo-theme-artemis
 
 menu:
-  Home: /
   Welcome: /welcome
+  Start: https://tessel.io/start
+  Docs: https://tessel.io/docs
+  Modules: /modules
+  Community: /community
   Blog: /blog
-  Archives: /archives
-  GitHub: https://github.com/tessel/project
-  RSS: /atom.xml
 
 favicon: /favicon.png
 logo: /logo.png
