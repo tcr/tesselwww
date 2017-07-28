@@ -1,0 +1,19 @@
+@import "neat";
+
+.module {
+    @include grid-container;
+
+    border-bottom: 2px solid blue;
+}
+
+.module-image {
+    @include grid-column(4);
+
+    img {
+        width: 80%;
+    }
+}
+
+.module-desc {
+    @include grid-column(8);
+}

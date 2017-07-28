@@ -4,31 +4,45 @@ module.exports = function (grunt) {
         sass: {
             dist: {
                 options: {
-                    sourcemap: 'none',
-                    style: 'compressed',
+                    sourceMap: false,
+                    outputStyle: 'compressed',
+                    includePaths: [].concat(
+                        require('node-bourbon').includePaths,
+                        require('node-neat').includePaths,
+                    ),
                 },
-                files: [
-                    {
-                        expand: true,
-                        cwd: 'source/scss',
-                        src: ['*.scss'],
-                        dest: 'source/css',
-                        ext: '.css'
-                    }
-                ]
+                files: {
+                    'source/css/theme.css': 'source/css/theme.scss',
+                }
+            }
+        },
+        sass_globbing: {
+            dist: {
+                files: {
+                    'source/css/theme.scss': 'source/scss/**/*.scss',
+                }
+            }
+        },
+        autoprefixer: {
+            dist: {
+                files: {
+                    'source/css/theme.css': 'source/css/theme.css'
+                }
             }
         },
         watch: {
             css: {
                 files: 'source/scss/**/*.scss',
-                tasks: ['sass']
+                tasks: ['sass_globbing', 'sass']
             }
         }
     });
 
-    grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-sass');
+    grunt.loadNpmTasks('grunt-sass-globbing');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-autoprefixer');
 
-    grunt.registerTask('build', ['sass']);
+    grunt.registerTask('build', ['sass_globbing', 'sass', 'autoprefixer']);
     grunt.registerTask('default', ['watch']);
 }
