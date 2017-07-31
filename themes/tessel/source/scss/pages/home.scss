@@ -1,0 +1,28 @@
+@import "neat";
+
+#home {
+    .feature-list {
+        columns: 2;
+    
+        ul, li {
+            margin: 0;
+            padding: 0;
+            display: block;
+            list-style: none;
+        }
+
+        li {
+            padding: 10px 15px;
+            border: 2px solid blue;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            margin: 0;
+        }
+
+        p {
+            margin: 0;
+        }
+    }
+}

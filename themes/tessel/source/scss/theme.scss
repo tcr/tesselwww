@@ -3,18 +3,19 @@
 @import "bourbon";
 @import "neat";
 
-@import "_partial/normalize";
-@import "_partial/base";
-@import "_partial/header";
-@import "_partial/home-post-list";
-@import "_partial/archive-post-list";
-@import "_partial/post";
-@import "_partial/footer";
-@import "_partial/mq";
-@import "_partial/copyright";
-@import "_partial/highlight";
+@import "shared/normalize";
+@import "shared/base";
+@import "shared/header";
+@import "shared/archive-post-list";
+@import "shared/post";
+@import "shared/footer";
+@import "shared/body";
+@import "shared/copyright";
+@import "shared/highlight";
 
-@import "_partial/modules";
+@import "pages/blog";
+@import "pages/home";
+@import "pages/modules";
 
 @font-face {
     font-family: 'sourcesanspro';
@@ -22,33 +23,4 @@
          url('../font/sourcesanspro.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-}
-
-// todo move
-
-#home {
-    .feature-list {
-        columns: 2;
-    
-        ul, li {
-            margin: 0;
-            padding: 0;
-            display: block;
-            list-style: none;
-        }
-
-        li {
-            padding: 10px 15px;
-            border: 2px solid blue;
-            margin-bottom: 10px;
-        }
-
-        h3 {
-            margin: 0;
-        }
-
-        p {
-            margin: 0;
-        }
-    }
 }

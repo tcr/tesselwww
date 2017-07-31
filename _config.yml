@@ -51,9 +51,6 @@ index_generator:
   path: '/blog'
   per_page: 10
   order_by: -date
-  
-exclude_generators:
-- index
 
 # Category & Tag
 default_category: uncategorized
