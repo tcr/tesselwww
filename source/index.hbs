@@ -1,149 +1,196 @@
-<h1>Tessel.io</h1>
+<div id="home">
+  <h1>Tessel.io</h1>
 
-<p>Build your idea <em>faster</em>.</p>
-<p>Tessel 2 is a robust IoT and robotics development platform. Leverage all the libraries of Node.JS to create useful devices in minutes with Tessel.</p>
+  <p>Build your idea <em>faster</em>.</p>
+  <p>Tessel 2 is a robust IoT and robotics development platform. Leverage all the libraries of Node.js to create useful devices in minutes with Tessel.</p>
 
-<p><b>Order from Seeed Studio (China/Global)</b></p>
-<p>Order from SparkFun (USA/Global)</p>
+  <p><a href="http://www.seeedstudio.com/depot/Tessel-2-p-2622.html?ref=tessel.io">Order from Seeed Studio (China/Global)</a></p>
+  <p><a href="https://www.sparkfun.com/products/13841?ref=tessel.io">Order from SparkFun (USA/Global)</a></p>
 
-<img height="100" src="https://s3.amazonaws.com/technicalmachine-assets/launch/tessel2-800x600.jpg">
+  <img height="100" src="https://s3.amazonaws.com/technicalmachine-assets/launch/tessel2-800x600.jpg">
 
-<h2>Tessel 2 Features</h2>
-<p>Everything you need to get up and running.</p>
+  <h2>Tessel 2 Features</h2>
+  <p>Everything you need to get up and running.</p>
 
-<p>PLUG & PLAY MODULE ECOSYSTEM</p>
-<p>PROTOTYPE FAST WITH MODULAR HARDWARE.</p>
-<p>Interact with the physical world from sensing to actuation to connecting with other devices. Each module has an open source library on NPM, with instructions and tutorials available online. It's literally plug, npm install, and play.</p>
+  <div class="feature-list">
+    <ul>
+      <li>
+        <h3>2 Tessel Module ports</h3>
+        <p>add sensors and actuators in one step</p>
+      </li>
+      <li>
+        <h3>2 USB ports</h3>
+        <p>use peripherals like cameras and 3G/4G dongles</p>
+      </li>
+      <li>
+        <h3>802.11bgn Wifi</h3>
+        <p>connected out of the box and wirelessly programmable</p>
+      </li>
+      <li>
+        <h3>Ethernet</h3>
+        <p>an ultra-reliable, wired connection</p>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <h3>580MHz Mediatek MT7620n</h3>
+        <p>execute your program faster</p>
+      </li>
+      <li>
+        <h3>64 MB DDR2 RAM &amp; 32 MB Flash</h3>
+        <p>plenty of space for your code</p>
+      </li>
+      <li>
+        <h3>48MHz Atmel SAMD21 coprocessor</h3>
+        <p>realtime I/O and better power management</p>
+      </li>
+      <li>
+        <h3>Micro-USB</h3>
+        <p>power and tethered programming</p>
+      </li>
+    </ul>
+  </div>
 
-<p>HIGH LEVEL HARDWARE APIS</p>
-<p>BUILD YOUR APPLICATION IN MINUTES.</p>
-<p>Tessel 2 runs JavaScript and supports NPM (the Node package manager)— that's HTTP, Twitter, web server, color, and async right out of the box.</p>
+  <h2>Plug &amp; Play Module Ecosystem</h2>
+  <h3>Prototype fast with modular hardware</h3>
+  <p>Interact with the physical world from sensing to actuation to connecting with other devices. Each module has an open source library on NPM, with instructions and tutorials available online. It's literally plug, npm install, and play.</p>
 
-<p>Install</p>
-<p>Add Library</p>
-<p>Get Online</p>
+  <h3>10-Pin Modules</h3>
 
-<p>Tessel 2 also has the capacity to support multiple languages&mdash;see samples of Rust and JavaScript in the tabs below.</p>
+  <h3>USB Modules</h3>
 
-<pre>
-/* ambient.js example */
-// this example streams sound data from
-// the ambient sensor every 0.5 seconds
-var tessel = require('tessel');
-var ambientlib = require('ambient-attx4');
-var WebSocket = require('ws');
+  <h3>Community-Created Modules</h3>
 
-// Connect to our ambient sensor.
-var ambient = ambientlib.use(tessel.port['A']);
+  <h2>High-Level Hardware APIs</h2>
+  <h3>Build your application in minutes.</h3>
+  <p>Tessel 2 runs JavaScript and supports NPM (the Node package manager)— that's HTTP, Twitter, web server, color, and async right out of the box.</p>
 
-// Open a websocket to our app.
-var ws = new WebSocket('ws://awesome-app.com/ambient');
-// When the connection is established
-ws.on('open', function () {
-  setInterval(function () {
-    // read some sound level data
-    ambient.getSoundLevel(function(err, sdata) {
-      if (err) throw err;
-      sdata.pipe(ws);
-    })
-  }, 500); // The readings will happen every .5 seconds
-});
-</pre>
+  <p>Install</p>
+  <p>Add Library</p>
+  <p>Get Online</p>
 
-<p>Use your favorite text editor and libraries to program Tessel 2, just like any web development environment. Uploading new code is as easy as tessel run!</p>
+  <p>Tessel 2 also has the capacity to support multiple languages&mdash;see samples of Rust and JavaScript in the tabs below.</p>
 
-<h2>USB Modules</h2>
-<p>Tessel has two USB ports. Plug in USB modules and control them with a simple script.</p>
+  <pre>
+  /* ambient.js example */
+  // this example streams sound data from
+  // the ambient sensor every 0.5 seconds
+  var tessel = require('tessel');
+  var ambientlib = require('ambient-attx4');
+  var WebSocket = require('ws');
 
-<pre>
-/* ambient-camera.js example */
-// this example records video from a camera
-// when a certain sound level is reached
-var tessel = require('tessel');
-var http = require('http');
-// set up camera
-var cameralib = require('camera-usb');
-// set up ambient sensor on port A
-var ambient = require('ambient-attx4').use(tessel.port['A']);
+  // Connect to our ambient sensor.
+  var ambient = ambientlib.use(tessel.port['A']);
 
-// set a sound trigger
-ambient.setSoundTrigger(0.6);
-
-cameralib.find(function(camera) {
-  // stream some video when sound is sensed
-  ambient.on('sound-trigger', function(){
-    var req = http.request({
-      hostname: 'example.com',
-        path: '/upload',
-        method: 'POST'
-      },
-      function (res) {
-        res.pipe(process.stdout)
-      });
-    camera.captureStream(2000, 'mjpg').pipe(req);
+  // Open a websocket to our app.
+  var ws = new WebSocket('ws://awesome-app.com/ambient');
+  // When the connection is established
+  ws.on('open', function () {
+    setInterval(function () {
+      // read some sound level data
+      ambient.getSoundLevel(function(err, sdata) {
+        if (err) throw err;
+        sdata.pipe(ws);
+      })
+    }, 500); // The readings will happen every .5 seconds
   });
-});
-</pre>
+  </pre>
 
-<p>Combine USB and 10-pin modules and run them with the same script.</p>
+  <p>Use your favorite text editor and libraries to program Tessel 2, just like any web development environment. Uploading new code is as easy as tessel run!</p>
 
-<p>Run Code t2 run ambient-camera.js </p>
+  <h2>USB Modules</h2>
+  <p>Tessel has two USB ports. Plug in USB modules and control them with a simple script.</p>
 
-<h2>Open Source</h2>
-<p>Just like the original Tessel, Tessel 2 is open source software and hardware. Contributions are welcome!</p>
+  <pre>
+  /* ambient-camera.js example */
+  // this example records video from a camera
+  // when a certain sound level is reached
+  var tessel = require('tessel');
+  var http = require('http');
+  // set up camera
+  var cameralib = require('camera-usb');
+  // set up ambient sensor on port A
+  var ambient = require('ambient-attx4').use(tessel.port['A']);
 
-<h3>The Nitty</h3>
-<ul>
-<li>Programmable in JavaScript</li>
-<li>Planned support for Rust and other languages</li>
-<li>Tessel Modules for added hardware capabilities</li>
-<li>Runs Node.js</li>
-<li>Deploy over USB or remotely by WiFi</li>
-<li>CE and FCC certified</li>
-<li>MicroUSB programming and power</li>
-</ul>
+  // set a sound trigger
+  ambient.setSoundTrigger(0.6);
 
-<h3>The Gritty</h3>
-<ul>
-<li>580MHz Mediatek MT7620n</li>
-<li>Linux built on OpenWRT</li>
-<li>802.11bgn WiFi</li>
-<li>WEP, WPA, WPA2-PSK, WPA2-Enterprise</li>
-<li>64MB DDR2 RAM</li>
-<li>32MB Flash</li>
-<li>16 pins GPIO, 7 of which support analog in</li>
-<li>2 USB 2.0 ports with per-port power switching</li>
-<li>Supports 10/100 ethernet</li>
-</ul>
+  cameralib.find(function(camera) {
+    // stream some video when sound is sensed
+    ambient.on('sound-trigger', function(){
+      var req = http.request({
+        hostname: 'example.com',
+          path: '/upload',
+          method: 'POST'
+        },
+        function (res) {
+          res.pipe(process.stdout)
+        });
+      camera.captureStream(2000, 'mjpg').pipe(req);
+    });
+  });
+  </pre>
 
-<h2>FAQ</h2>
+  <p>Combine USB and 10-pin modules and run them with the same script.</p>
 
-<dl>
-<dt>What’s changing with Tessel 2?</dt>
-<dd>New features on Tessel 2 include extremely reliable WiFi, an ethernet jack, two USB ports, and a system that runs real Node.js/io.js.
-We’ve also added support for scaling up: board customization options, and services for embedding Tessel in a product.</dd>
-<dt>When will my Tessel 2 ship?</dt>
-<dd>Tessel 2 is currently shipping! You can order T2s for immediate delivery from Seeed.</dd>
-<dt>What modules are available/compatible?</dt>
-<dd>Check out <a href="/modules">our modules page</a>!</dd>
-<dt>How is Tessel 2 different from other development boards?</dt>
-<dd>Tessel 2 is designed for the fastest possible path to production. Plug and play modules and high-level APIs set it apart from most other development boards. Tessel doesn't expect you to set up and maintain a Linux system or track down pinout diagrams to wire up sensors (though the root shell and GPIO access are available should you desire them).</dd>
-<dt>Can I try out the Tessel platform?</dt>
-<dd>Absolutely! You can find in-person communities hacking on Tessels on our <a href="https://tessel.io/community">Community page</a>.</dd>
-<dt>Can I use my own USB devices?</dt>
-<dd>Yes. First-party modules will have high-level APIs and be tested to ensure driver support, but you can also add your own USB devices if the drivers are compatible and/or you dive a little deeper into the OpenWrt ecosystem.</dd>
-<dt>Is Tessel a start-up?</dt>
-<dd>No– in fact, we're not a company at all. Originally, Tessel was produced by a start-up called Technical Machine, but it has since grown into an independent, all-volunteer organization called the Tessel Project.</dd>
-<dt>I have more questions! How can I contact you?</dt>
-<dd>For quick questions, we're @tesselproject on Twitter. Longer questions are welcome on our forums. Questions about orders should be directed to Seeed Studio.</dd>
-</dl>
+  <p>Run Code <code>t2 run ambient-camera.js</code></p>
 
-<h2>Stay Updated</h2>
-<p>Sign up to receive a periodic (monthly) newsletter about Tessel news.</p>
-<p>"This Week in Tessel" is where we highlight the latest news, projects, and events, from code, to community, to hardware manufacturing.</p>
+  <h2>Open Source</h2>
+  <p>Just like the original Tessel, Tessel 2 is open source software and hardware. Contributions are welcome!</p>
 
-<p>Enter your email address to subscribe.*</p>
+  <h3>The Nitty</h3>
+  <ul>
+  <li>Programmable in JavaScript</li>
+  <li>Planned support for Rust and other languages</li>
+  <li>Tessel Modules for added hardware capabilities</li>
+  <li>Runs Node.js</li>
+  <li>Deploy over USB or remotely by WiFi</li>
+  <li>CE and FCC certified</li>
+  <li>MicroUSB programming and power</li>
+  </ul>
+
+  <h3>The Gritty</h3>
+  <ul>
+  <li>580MHz Mediatek MT7620n</li>
+  <li>Linux built on OpenWRT</li>
+  <li>802.11bgn WiFi</li>
+  <li>WEP, WPA, WPA2-PSK, WPA2-Enterprise</li>
+  <li>64MB DDR2 RAM</li>
+  <li>32MB Flash</li>
+  <li>16 pins GPIO, 7 of which support analog in</li>
+  <li>2 USB 2.0 ports with per-port power switching</li>
+  <li>Supports 10/100 ethernet</li>
+  </ul>
+
+  <h2>FAQ</h2>
+
+  <dl>
+  <dt>What’s changing with Tessel 2?</dt>
+  <dd>New features on Tessel 2 include extremely reliable WiFi, an ethernet jack, two USB ports, and a system that runs real Node.js.
+  We’ve also added support for scaling up: board customization options, and services for embedding Tessel in a product.</dd>
+  <dt>When will my Tessel 2 ship?</dt>
+  <dd>Tessel 2 is currently shipping! You can order T2s for immediate delivery from Seeed.</dd>
+  <dt>What modules are available/compatible?</dt>
+  <dd>Check out <a href="/modules">our modules page</a>!</dd>
+  <dt>How is Tessel 2 different from other development boards?</dt>
+  <dd>Tessel 2 is designed for the fastest possible path to production. Plug and play modules and high-level APIs set it apart from most other development boards. Tessel doesn't expect you to set up and maintain a Linux system or track down pinout diagrams to wire up sensors (though the root shell and GPIO access are available should you desire them).</dd>
+  <dt>Can I try out the Tessel platform?</dt>
+  <dd>Absolutely! You can find in-person communities hacking on Tessels on our <a href="https://tessel.io/community">Community page</a>.</dd>
+  <dt>Can I use my own USB devices?</dt>
+  <dd>Yes. First-party modules will have high-level APIs and be tested to ensure driver support, but you can also add your own USB devices if the drivers are compatible and/or you dive a little deeper into the OpenWrt ecosystem.</dd>
+  <dt>Is Tessel a start-up?</dt>
+  <dd>No– in fact, we're not a company at all. Originally, Tessel was produced by a start-up called Technical Machine, but it has since grown into an independent, all-volunteer organization called the Tessel Project.</dd>
+  <dt>I have more questions! How can I contact you?</dt>
+  <dd>For quick questions, we're @tesselproject on Twitter. Longer questions are welcome on our forums. Questions about orders should be directed to Seeed Studio.</dd>
+  </dl>
+
+  <h2>Stay Updated</h2>
+  <p>Sign up to receive a periodic (monthly) newsletter about Tessel news.</p>
+  <p>"This Week in Tessel" is where we highlight the latest news, projects, and events, from code, to community, to hardware manufacturing.</p>
+
+  <p>Enter your email address to subscribe.*</p>
 
 
-<p>Order from Seeed Studio (China/Global)</p>
-<p>Order from SparkFun (USA/Global)</p>
+  <p><a href="http://www.seeedstudio.com/depot/Tessel-2-p-2622.html?ref=tessel.io">Order from Seeed Studio (China/Global)</a></p>
+  <p><a href="https://www.sparkfun.com/products/13841?ref=tessel.io">Order from SparkFun (USA/Global)</a></p>
+</div>
