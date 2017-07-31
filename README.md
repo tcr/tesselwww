@@ -1,24 +1,34 @@
 # tesselwww
 
-Work in progress.
+A future static generator for <tessel.io>.
 
-Each time `master` is updated the netlify page gets updated
+Each time `master` is updated the Netlify page at http://tesselwww.netlify.com/ gets updated.
+
+## Development
+
+To develop on and serve the website:
 
 ```
 npm install
 hexo server
 ```
 
-Page reference:
+To also modify themes / CSS, run this in another terminal:
 
-- source/index.hbs — handlebars index page.
-- source/welcome/index.md — welcome page
-- source/_posts/ — blog posts
+```
+cd themes/
+npm install
+gulp watch
+```
 
-Themes: to modify, cd into themes and run `npm install`, then `gulp build` when you make changes.
+### Folders
 
-- themes/tessel/layout for handlebars templates
-- themes/tessel/source for SASS/fonts.
+- **`source/`** — Markdown or Handlebar (.hbs) files for the content of each page.
+- `source/_posts` — Blog posts.
+- **`themes/tessel/layout/`** — Handlebar layout files for the website.
+- **`themes/tessel/source/scss`** — Sass files for the whole site.
+- `themes/tessel/source/scss/pages` — Sass files for individual pages.
+- `scripts/` - Build scripts for Hexo (see the Hexo reference for details).
 
 ## License
 
