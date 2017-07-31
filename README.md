@@ -1,6 +1,8 @@
 # tesselwww
 
-A future static generator for <tessel.io>.
+[![Code of Conduct](https://img.shields.io/badge/%E2%9D%A4-code%20of%20conduct-blue.svg?style=flat)](https://github.com/tessel/project/blob/master/CONDUCT.md)
+
+A future static generator for tessel.io.
 
 Each time `master` is updated the Netlify page at http://tesselwww.netlify.com/ gets updated.
 
@@ -23,8 +25,10 @@ gulp watch
 
 ### Folders
 
+- `_config.yml` — Hexo configuration.
 - **`source/`** — Markdown or Handlebar (.hbs) files for the content of each page.
 - `source/_posts` — Blog posts.
+- `themes/tessel/_config.yml` — Theme and layout configuration (incl. header)
 - **`themes/tessel/layout/`** — Handlebar layout files for the website.
 - **`themes/tessel/source/scss`** — Sass files for the whole site.
 - `themes/tessel/source/scss/pages` — Sass files for individual pages.
