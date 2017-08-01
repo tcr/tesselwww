@@ -28,4 +28,9 @@ header {
             line-height: 1.4;
         }
     }
+
+    .nav-list-item a[href*="/start"],
+    .nav-list-item a[href*="/docs"] {
+        color: #d00;
+    }
 }
