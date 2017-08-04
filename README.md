@@ -11,9 +11,8 @@ Each time `master` is updated the Netlify page at http://tesselwww.netlify.com/ 
 To develop on and serve the website, inside your local directory of tesselwww run:
 
 ```
-npm install hexo-cli -g
 npm install
-hexo server
+npm start
 ```
 
 To also modify themes / CSS, run this in another terminal (also inside your local tesselwww directory):
