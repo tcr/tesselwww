@@ -2,20 +2,20 @@
 
 [![Code of Conduct](https://img.shields.io/badge/%E2%9D%A4-code%20of%20conduct-blue.svg?style=flat)](https://github.com/tessel/project/blob/master/CONDUCT.md)
 
-A future static generator for tessel.io.
+A future static generator for tessel.io using [hexo](https://www.npmjs.com/package/hexo) for static page structure and [Netlify](https://www.netlify.com/) for hosting/continuous deployment.
 
 Each time `master` is updated the Netlify page at http://tesselwww.netlify.com/ gets updated.
 
 ## Development
 
-To develop on and serve the website:
+To develop on and serve the website, inside your local directory of tesselwww run:
 
 ```
 npm install
-hexo server
+npm start
 ```
 
-To also modify themes / CSS, run this in another terminal:
+To also modify themes / CSS, run this in another terminal (also inside your local tesselwww directory):
 
 ```
 cd themes/
