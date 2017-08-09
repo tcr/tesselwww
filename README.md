@@ -20,8 +20,10 @@ To also modify themes / CSS, run this in another terminal (also inside your loca
 ```
 cd themes/tessel/
 npm install
-gulp watch
+grunt watch
 ```
+
+(If your shell indicates `grunt` is not installed, run `npm i -g grunt-cli` first.)
 
 ### Folders
 
