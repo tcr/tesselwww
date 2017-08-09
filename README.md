@@ -18,7 +18,7 @@ npm start
 To also modify themes / CSS, run this in another terminal (also inside your local tesselwww directory):
 
 ```
-cd themes/
+cd themes/tessel/
 npm install
 gulp watch
 ```
