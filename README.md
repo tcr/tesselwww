@@ -15,26 +15,40 @@ npm install
 npm start
 ```
 
-To also modify themes / CSS, run this in another terminal (also inside your local tesselwww directory):
+Files to modify:
+
+- **`source/` — Handlebar (.hbs) or Markdown (.md) content for each page on the website.**
+- **`source/_posts/` — Blog posts in Markdown format.**
+
+### Modifying Layout or CSS
+
+To also modify page layout or stylesheets, run this in another terminal (also inside your local tesselwww directory):
 
 ```
-cd themes/tessel/
+cd theme/
 npm install
 grunt watch
 ```
 
 (If your shell indicates `grunt` is not installed, run `npm i -g grunt-cli` first.)
 
-### Folders
+Files to modify:
+
+- **`theme/layout/` — Handlebar layout templates for the website.**
+- **`theme/source/scss/` — Sass stylesheets for the whole site.**
+- **`theme/source/scss/shared/` — Sass stylesheets for common components.**
+- **`theme/source/scss/pages/` — Sass stylesheets for individual pages.**
+
+### Other files
+
+These are the other files included in the Hexo structure:
 
 - `_config.yml` — Hexo configuration.
-- **`source/`** — Markdown or Handlebar (.hbs) files for the content of each page.
-- `source/_posts` — Blog posts.
-- `themes/tessel/_config.yml` — Theme and layout configuration (incl. header)
-- **`themes/tessel/layout/`** — Handlebar layout files for the website.
-- **`themes/tessel/source/scss`** — Sass files for the whole site.
-- `themes/tessel/source/scss/pages` — Sass files for individual pages.
+- `public/` — Generated website files.
 - `scripts/` - Build scripts for Hexo (see the Hexo reference for details).
+- `theme/_config.yml` — Theme and layout configuration (incl. which tabs to show in the header)
+- `theme/source/css/` — Generated CSS files from the `grunt` step.
+- `theme/source/font/` — Font files.
 
 ## License
 
