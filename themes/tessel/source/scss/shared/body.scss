@@ -1,11 +1,9 @@
-@import "neat";
-
 main.container {
-    @include grid-container;
+    /* TODO */
 }
 
 .page-content {
-    @include grid-column(12);
+    /* TODO */
 }
 
 @media screen and (min-width: 1000px) {

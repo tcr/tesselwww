@@ -6,10 +6,6 @@ module.exports = function (grunt) {
                 options: {
                     sourceMap: false,
                     outputStyle: 'compressed',
-                    includePaths: [].concat(
-                        require('node-bourbon').includePaths,
-                        require('node-neat').includePaths,
-                    ),
                 },
                 files: {
                     'source/css/theme.css': 'source/css/theme.scss',
