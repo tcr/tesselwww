@@ -1,41 +1,51 @@
 <h1>Modules</h1>
 
-<h2>Ten-Pin Modules</h2>
+<h2 class="f2 lh-title">Ten-Pin Modules</h2>
 
 {{#each tenpin as |item|}}
-  <div class="module">
-    <div class="module-image">
-      <div><img src="{{item.image}}"></div>
-      <a href="{{item.buy}}" class="module-purchase">Purchase</a>
-      <div class="module-package">
+  <div class="cf">
+    <div class="fl w-30 pa4 tc">
+      <div>
+        <img src="{{item.image}}">
+      </div>
+      <div class="">
         <code>npm install {{item.package}}</code>
       </div>
-      <a href="">View library on Github &rarr;</a>
+      <a href="/">View library on Github &rarr;</a>
+      <div class="mt3">
+        <a href="{{item.buy}}" class="dib f6 link dim br-pill ph3 pv2 mb2 white bg-dark-green">
+          Purchase
+        </a>
+      </div>
     </div>
-    <div class="module-desc">
-      <h3>{{item.name}}</h3>
-      <p>{{item.description}}</p>
+    <div class="fl w-70 pa4">
+      <h3 class="f2 lh-title">{{item.name}}</h3>
+      <p class="f4 lh-copy">{{item.description}}</p>
     </div>
   </div>
 {{/each}}
 
-<hr>
-
-<h2>Community Modules</h2>
+<h2 class="mt6 f2 lh-title">Community Modules</h2>
 
 {{#each community as |item|}}
-  <div class="module">
-    <div class="module-image">
-      <div><img src="{{item.image}}"></div>
-      <a href="{{item.buy}}" class="module-purchase">Purchase</a>
-      <div class="module-package">
+  <div class="cf">
+    <div class="fl w-30 pa4 tc">
+      <div>
+        <img src="{{item.image}}">
+      </div>
+      <div class="">
         <code>npm install {{item.package}}</code>
       </div>
-      <a href="">View library on Github &rarr;</a>
+      <a href="/">View library on Github &rarr;</a>
+      <div class="mt3">
+        <a href="{{item.buy}}" class="dib f6 link dim br-pill ph3 pv2 mb2 white bg-dark-green">
+          Purchase
+        </a>
+      </div>
     </div>
-    <div class="module-desc">
-      <h2>{{item.name}}</h2>
-      <p>{{item.description}}</p>
+    <div class="fl w-70 pa4">
+      <h3 class="f2 lh-title">{{item.name}}</h3>
+      <p class="f4 lh-copy">{{item.description}}</p>
     </div>
   </div>
 {{/each}}
