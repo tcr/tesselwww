@@ -4,18 +4,18 @@
 <head>{{> head }}</head>
 
 <body>
-  <div class="wrap">
+  <div class="w-100 ph5">
     <header>{{!-- img.logo-image(src=url_for(theme.logo) alt='logo')--}}
-      <h1 class="branding">
+      <h1 class="dib mt2 relative mb0">
         <a href="/" title="{{config.title}}">
           {{#if theme.logo}}
-            <img src="{{theme.logo}}" alt="logo" class="logo-image">
+            <img src="{{theme.logo}}" alt="logo" class="w-40">
           {{/if}}
         </a>
       </h1>
       {{> nav }}
     </header>
-    <main class="container">{{> container }}</main>
+    <main>{{> container }}</main>
     <footer>{{> pagination }}{{> copyright }}</footer>
   </div>{{> scripts }}</body>
 
